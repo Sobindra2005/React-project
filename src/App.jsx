@@ -23,9 +23,9 @@ import { UserDetails } from './pages/dashboard/UserDetails';
 import { NotFound } from './pages/NotFound';
 import { AcademyPage } from './pages/useContext/AcademyPage';
 import { RandomProvider } from './pages/useContext/randomProvider';
+import { CartProvider } from './components/product/exercise/cartProvider';
 
 function App() {
-  const [cart, setCart] = useState([]);
 
   return (
     <BrowserRouter>
@@ -38,10 +38,10 @@ function App() {
         <Route
           path="/exercise"
           element={
-            <>
-              <Navbar cart={cart} />
-              <ProductList products={productsSearch} cart={cart} setCart={setCart} />
-            </>
+            <CartProvider>
+              <Navbar  />
+              <ProductList products={productsSearch}  />
+            </CartProvider>
           }
         />
         <Route path="/dashboard" element={<DashboardLayout />} >

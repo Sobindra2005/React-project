@@ -1,4 +1,10 @@
-export function AddToCart({ product, cart, setCart }) {
+import { useContext } from "react";
+import { CartContext } from "./cartProvider";
+
+export function AddToCart({ product}) {
+
+  const {cart,setCart}=useContext(CartContext)
+
   const isInCart = cart.some((cartProduct) => cartProduct.id === product.id);
 
   function handleAddToCart() {

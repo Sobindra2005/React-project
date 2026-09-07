@@ -1,6 +1,6 @@
 import { ProductCard } from './ProductCard';
 
-export function ProductList({ products, cart, setCart }) {
+export function ProductList({ products }) {
   return (
     <section className="mx-auto max-w-5xl px-6 py-10">
       <div className="mb-6">
@@ -13,7 +13,7 @@ export function ProductList({ products, cart, setCart }) {
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} cart={cart} setCart={setCart} />
+          <ProductCard key={product.id} product={product}  />
         ))}
       </div>
     </section>

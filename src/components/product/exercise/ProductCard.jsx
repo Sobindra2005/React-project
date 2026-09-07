@@ -1,6 +1,6 @@
 import { AddToCart } from './AddToCart';
 
-export function ProductCard({ product, cart, setCart }) {
+export function ProductCard({ product}) {
   return (
     <article className="flex flex-col justify-between rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
       <div>
@@ -11,7 +11,7 @@ export function ProductCard({ product, cart, setCart }) {
         <p className="mt-2 text-sm text-stone-600">${product.price.toFixed(2)}</p>
       </div>
       <div className="mt-6">
-        <AddToCart product={product} cart={cart} setCart={setCart} />
+        <AddToCart product={product}  />
       </div>
     </article>
   );
