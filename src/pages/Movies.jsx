@@ -1,7 +1,30 @@
 
+import { useEffect, useState } from 'react';
+import { MovieApi } from '../api';
 import { MovieCard, SkeletonMovieCard } from '../components/movieCard';
 
 export function Movies() {
+    const [movieList,setMovieList]=useState([])
+
+    useEffect(() => {
+        async function FetchSearchMovie() {
+            try {
+                const response = await MovieApi.get('/search/movie', {
+                    params: {
+                        query: 'avenger'
+                    }
+                })
+
+                console.log(response.data.results[0])
+                setMovieList(response.data.results)
+
+            } catch (err) {
+                console.log(err.message)
+            }
+        }
+
+        FetchSearchMovie()
+    }, [])
 
     return (
         <main className="min-h-screen bg-slate-950 px-6 py-10 text-white sm:px-10">
@@ -38,9 +61,9 @@ export function Movies() {
                     <p className="text-slate-300">No movies were found.</p>
                 )}
 
-                {false && (
+                {true && (
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
-                        {movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+                        {movieList.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
                     </div>
                 )}
             </section>

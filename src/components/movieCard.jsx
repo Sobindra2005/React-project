@@ -6,14 +6,14 @@ export function MovieCard({ movie }) {
         >
             <img
                 src={posterUrl}
-                alt={movie.title || movie.name}
+                alt={movie.title}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 loading="lazy"
             />
             {/* Optional Gradient Overlay on Hover for Text */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                 <h3 className="text-white text-sm font-semibold truncate w-full">
-                    {movie.title || movie.name}
+                    {movie.title}
                 </h3>
             </div>
             {/* Border effect like in the design (white border on hover or active) */}
