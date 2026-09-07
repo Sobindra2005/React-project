@@ -5,10 +5,12 @@ import { MovieCard, SkeletonMovieCard } from '../components/movieCard';
 
 export function Movies() {
     const [movieList,setMovieList]=useState([])
+    const [isLoading,setIsLoading]=useState(false)
 
     useEffect(() => {
         async function FetchSearchMovie() {
             try {
+                setIsLoading(true)
                 const response = await MovieApi.get('/search/movie', {
                     params: {
                         query: 'avenger'
@@ -20,6 +22,8 @@ export function Movies() {
 
             } catch (err) {
                 console.log(err.message)
+            } finally {
+                 setIsLoading(false)
             }
         }
 
@@ -47,8 +51,8 @@ export function Movies() {
                 </header>
 
 
-                {false && <div className=" grid gap-4 grid-cols-6">
-                    {Array.from({ length: 12 }, (_, index) => <SkeletonMovieCard key={index} />)}
+                {isLoading && <div className=" grid gap-4 grid-cols-6">
+                    {Array.from({ length: 18 }, (_, index) => <SkeletonMovieCard key={index} />)}
                 </div>
                 }
                 {false && (
@@ -61,7 +65,7 @@ export function Movies() {
                     <p className="text-slate-300">No movies were found.</p>
                 )}
 
-                {true && (
+                {!isLoading && (
                     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
                         {movieList.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
                     </div>
