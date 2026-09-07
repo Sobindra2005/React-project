@@ -8,6 +8,7 @@ export function AcademyPage() {
 
   return (
     <main className="min-h-screen bg-stone-50 px-6 py-12 text-stone-900">
+      
       <div className="mx-auto max-w-4xl">
         <header className="mb-8">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-amber-700">

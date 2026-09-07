@@ -24,6 +24,7 @@ import { NotFound } from './pages/NotFound';
 import { AcademyPage } from './pages/useContext/AcademyPage';
 import { RandomProvider } from './pages/useContext/randomProvider';
 import { CartProvider } from './components/product/exercise/cartProvider';
+import { Movies } from './pages/Movies';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
             </CartProvider>
           }
         />
+        <Route path="/movies" element={<Movies />} />
         <Route path="/dashboard" element={<DashboardLayout />} >
           <Route index element={<h1>This is dashdbaord overview section</h1>} />
           <Route path="users" element={<Users />} />
