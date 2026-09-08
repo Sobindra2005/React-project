@@ -20,7 +20,6 @@ export function Movies() {
                         query: inputValue
                     }
                 })
-
                 setMovieList(response.data.results)
             } catch (err) {
                 console.log(err.message)
